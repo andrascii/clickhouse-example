@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package mdh;
+
+message TcaTrades {
+  string timestamp = 1;
+  int64 id = 2;
+  string timestamp_original = 3; // decimal
+  string client_orders_client_order_id = 4;
+  string client_orders_database_id = 5;
+  string extra_params = 6;
+  string price = 7; // decimal
+  string quantity = 8; // decimal
+  int64 ilp_trades_id = 9;
+  int64 sor_child_order_id = 10;
+  string client_trades_execution_id = 11;
+  string manual_execution = 12;
+  string order_final = 13;
+  string symbol = 14;
+  string venue = 15;
+}

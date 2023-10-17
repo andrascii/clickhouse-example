@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package mdh;
+
+message ClientTrades {
+  string timestamp = 1;
+  string base_currency = 2;
+  string client_account = 3;
+  string client_order_id = 4;
+  string efx_order_id = 5;
+  string far_tenor = 6;
+  string far_value_date = 7;
+  string fixing_date = 8;
+  string fixing_source = 9;
+  string near_tenor = 10;
+  string near_value_date = 11;
+  string product = 12;
+  string settlement_currency = 13;
+  string side = 14;
+  string source = 15;
+  string strategy = 16;
+  string sub_status = 17;
+  string symbol = 18;
+  string term_currency = 19;
+  string tier = 20;
+  string type = 21;
+
+  string execute_timestamp = 22; // decimal
+  string price_executed_far = 23; // decimal
+  string price_executed_near = 24; // decimal
+  string quantity_base_executed_near = 25; // decimal
+  string quantity_term_executed_near = 26; // decimal
+  string swap_points = 27; // decimal
+  string trader_price = 28; // decimal
+  string trader_price_modified_timestamp = 29; // decimal
+
+  string book = 30;
+  string execution_id = 31;
+  string is_reciprocal = 32;
+  string quoted_by = 33;
+  string quote_type = 34;
+  string trader_price_modified_by = 35;
+}

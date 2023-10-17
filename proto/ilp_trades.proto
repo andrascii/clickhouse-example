@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package mdh;
+
+message ILpTrades {
+  string timestamp = 1;
+  int64 id = 2;
+  string trade_timestamp = 3; // decimal
+  string price = 4; // decimal
+  string quantity = 5; // decimal
+  string symbol = 6;
+  string aggressive_side = 7;
+  string sell_order_id = 8;
+  string sell_order_type = 9;
+  string buy_order_id = 10;
+  string buy_order_type = 11;
+}

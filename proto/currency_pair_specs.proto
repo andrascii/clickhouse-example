@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mdh;
+
+message CurrencyPairSpecs {
+  string timestamp = 1;
+  string symbol = 2;
+  string symbol_type = 3;
+  int64 display_precision_multiplier = 4;
+  int64 minor_decimals = 5;
+  int64 display_decimals = 6;
+  int64 display_small_quantity_indicator = 7;
+  int64 price_precision = 8;
+  int64 additional_pip_precision = 9;
+  int64 display_figure_decimals = 10;
+  int64 price_precision_swap = 11;
+  int64 display_large_quantity_indicator = 12;
+  int64 spot_adjustment_precision = 13;
+  int64 ref_rate_offset = 14;
+  int64 forward_adjustment_precision = 15;
+  string display_rate_check_difference = 16; // decimal
+  string reuter_default_scaling = 17; // decimal
+  string display_large_spread_indicator = 18; // decimal
+}

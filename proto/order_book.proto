@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package mdh;
+
+enum Side {
+  kBid = 0;
+  kAsk = 1;
+}
+
+message OrderBook {
+  string timestamp = 1;
+  string symbol = 2;
+  uint64 level = 3;
+  string size = 4;
+  string price = 5;
+  Side side = 6;
+}

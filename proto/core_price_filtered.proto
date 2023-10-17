@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package mdh;
+
+message CorePriceFiltered {
+  string timestamp = 1;
+  int64 id = 2;
+  string symbol = 3;
+  string min_spread = 4; // decimal
+  string sharp_move_period = 5; // decimal
+  string sharp_move_diff = 6; // decimal
+  string volatility_period = 7; // decimal
+  string volatility_interval = 8; // decimal
+  string volatility_sensitivity = 9; // decimal
+  string max_spread = 10; // decimal
+  string decay_parameter = 11; // decimal
+}

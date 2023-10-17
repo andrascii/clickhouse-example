@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mdh;
+
+message CurrencyPnl {
+  string timestamp = 1;
+  string position = 2; // decimal
+  string cost = 3; // decimal
+  string position_value = 4; // decimal
+  string pnl = 5; // decimal
+  string unrealised_pnl = 6; // decimal
+  string realised_pnl = 7; // decimal
+  string realised_desk_pnl = 8; // decimal
+  string realised_sales_pnl = 9; // decimal
+  string currency = 10;
+  string last_trade_id = 11;
+  string book = 12;
+}

@@ -1,0 +1,8 @@
+[Demo]
+host          = "localhost:9100"
+database      = "default"
+user          = "default"
+password      = ""
+message       = "hui"
+table         = "HuiTable"
+query         = "example_query_id"

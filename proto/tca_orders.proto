@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package mdh;
+
+message TcaOrders {
+  string timestamp = 1;
+  int64 id = 2;
+  string timestamp_original = 3; // decimal
+  string client_orders_client_order_id = 4;
+  string client_orders_database_id = 5;
+  string extra_params = 6;
+}

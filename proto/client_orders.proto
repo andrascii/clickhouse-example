@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+package mdh;
+
+message ClientOrders {
+  string timestamp = 1;
+  int64 allocation_number = 2;
+  string auto_amount = 3; // decimal
+  string avg_price_executed_near = 4; // decimal
+  string avg_trd_price_executed_near = 5; // decimal
+  string gtc_cancel_timestamp = 6; // decimal
+  int64 ilp_trade_id = 7;
+  string last_base_qty_executed_near = 8; // decimal
+  string last_price_executed_near = 9; // decimal
+  string last_trd_price_executed_near = 10; // decimal
+  string manual_amount = 11; // decimal
+  string order_base_quantity_far = 12; // decimal
+  string order_base_quantity_near = 13; // decimal
+  string order_price_far = 14; // decimal
+  string order_price_near = 15; // decimal
+  string order_term_quantity_far = 16; // decimal
+  string order_term_quantity_near = 17; // decimal
+  string qty_base_executed_near = 18; // decimal
+  string qty_base_remaining_near = 19; // decimal
+  string submit_timestamp = 20; // decimal
+  string update_time = 21; // decimal
+  string acceptance = 22;
+  string accepted_by = 23;
+  string allocations = 24;
+  string client_user_id = 25;
+  string currency = 26;
+  string database_id = 27;
+  string delivery_type = 28;
+  string executed_by = 29;
+  string execution = 30;
+  string extra_params = 31;
+  string has_ilp_trade_id = 32;
+  string id = 33;
+  string is_final = 34;
+  string manual_book = 35;
+  string message = 36;
+  string netting_option = 37;
+  string owner = 38;
+  string session = 39;
+  string state = 40;
+  string strategy_state = 41;
+  string time_in_force = 42;
+  string transport = 43;
+  string cri_check_id = 44;
+  // ClientOrders/ClientTrades common fields below
+  string base_currency = 45;
+  string client_account = 46;
+  string client_order_id = 47;
+  string efx_order_id = 48;
+  string far_tenor = 49;
+  string far_value_date = 50;
+  string fixing_date = 51;
+  string fixing_source = 52;
+  string near_tenor = 53;
+  string near_value_date = 54;
+  string product = 55;
+  string settlement_currency = 56;
+  string side = 57;
+  string source = 58;
+  string strategy = 59;
+  string sub_status = 60;
+  string symbol = 61;
+  string term_currency = 62;
+  string tier = 63;
+  string type = 64;
+}

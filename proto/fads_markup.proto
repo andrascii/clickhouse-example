@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package mdh;
+
+message FadsMarkup {
+  string timestamp = 1;
+  int64 id = 2;
+  int64 volume_band = 3;
+  string bid_spd = 4; // decimal
+  string ask_spd = 5; // decimal
+  string bid_bp = 6; // decimal
+  string ask_bp = 7; // decimal
+  string updated_at = 8; // decimal
+  string symbol = 9;
+  string tier = 10;
+  string client = 11;
+  string tenor = 12;
+  string strategy = 13;
+  string enabled = 14;
+  string updated_by = 15;
+}

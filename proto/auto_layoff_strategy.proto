@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package mdh;
+
+message AutoLayoffStrategy {
+  string timestamp = 1;
+  string strategy_name = 3;
+  string currency = 4;
+  string currency_pair = 5;
+  string state = 6;
+  string paused = 7;
+  string paused_reasons = 8;
+}
