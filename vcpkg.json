@@ -1,0 +1,16 @@
+{
+  "dependencies": [
+    "boost",
+    "gtest",
+    "spdlog",
+    "tl-expected",
+    "nlohmann-json",
+    "date",
+    "grpc",
+    "protobuf",
+    "benchmark",
+    "toml11",
+    "tomlplusplus",
+    "decimal-for-cpp"
+  ]
+}

@@ -1,4 +1,7 @@
 build
+build-debug
+build-release
+build-relwithdeb
 cmake-build-debug
 cmake-build-release
 .DS_Store
