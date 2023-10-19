@@ -34,6 +34,9 @@
 #include "ilp_trades.h"
 #include "tca_orders.h"
 #include "tca_trades.h"
+#include "forward_points_blending_weight.h"
+#include "manual_forward_points.h"
+#include "position_transfer_service_data.h"
 
 namespace mdh::cluster::db {
 

@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mdh;
+
+message ManualForwardPoints {
+  string timestamp = 1;
+  int64 id = 2;
+  int64 bid_size = 3;
+  int64 ask_size = 4;
+  int64 alert_id = 5;
+  int64 days_maturity = 6;
+  string mat_date_ts = 7; // decimal
+  string bid_price = 8; // decimal
+  string ask_price = 9; // decimal
+  string refday_bid = 10; // decimal
+  string refday_ask = 11; // decimal
+  string source = 12;
+  string enabled = 13;
+  string mat_date = 14;
+  string indicative = 15;
+  string start_date = 16;
+  string bid_out_of_range = 17;
+  string ask_out_of_range = 18;
+}

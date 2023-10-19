@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package mdh;
+
+message ForwardPointsBlendingWeight {
+  string timestamp = 1;
+  int64 id = 2;
+  string weight = 3; // decimal
+  string symbol = 4;
+  string tenor = 5;
+  string source = 6;
+  string points_type = 7;
+}

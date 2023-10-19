@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package mdh;
+
+message PositionTransferServiceData {
+  string timestamp = 1;
+  string base_amount = 2; // decimal
+  string term_amount = 3; // decimal
+  string timestamp_original = 4; // decimal
+  string symbol = 5;
+  string term_currency = 6;
+  string to_book = 7;
+  string base_currency = 8;
+  string from_book = 9;
+  string comment = 10;
+  string trade_id = 11;
+}
