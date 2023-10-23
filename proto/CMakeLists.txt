@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 
 include(make_executable_sanitized_target)
+include(proto)
 
 set(THIS_TARGET_NAME proto)
 project(${THIS_TARGET_NAME})

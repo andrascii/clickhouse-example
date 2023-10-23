@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package mdh;
+package mdh.dvc.protobuf;
 
 message SomBenchmarkStrategy {
   string timestamp = 1;

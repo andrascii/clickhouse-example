@@ -15,7 +15,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 #
 # precompiled header
 #
-set(PRECOMPILED_HEADER "stdafx.h")
+set(PRECOMPILED_HEADER "include/mdh/dvc/stdafx.h")
 
 #
 # deps include directories
@@ -53,7 +53,7 @@ add_executable(${THIS_TARGET_NAME} ${HEADERS_LIST} ${SOURCES_LIST})
 target_include_directories(
   ${THIS_TARGET_NAME} PUBLIC
   ${ADDITIONAL_INCLUDE_DIRECTORIES}
-  ${CMAKE_CURRENT_SOURCE_DIR}
+  ${CMAKE_CURRENT_SOURCE_DIR}/include
   ${CMAKE_CURRENT_BINARY_DIR}
 )
 

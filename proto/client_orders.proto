@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package mdh;
+package mdh.dvc.protobuf;
 
 message ClientOrders {
   string timestamp = 1;
