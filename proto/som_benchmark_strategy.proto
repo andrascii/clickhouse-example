@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package mdh;
+
+message SomBenchmarkStrategy {
+  string timestamp = 1;
+  int64 state_time_update = 2;
+  int64 cumulative_unhedged_threshold = 3;
+  int64 id = 4;
+  int64 stop_loss_threshold = 5;
+  int64 volume = 6;
+  int64 target_to_b_volume = 7;
+  int64 benchmark_volume = 8;
+
+  string internal_price = 9; // decimal
+  string price_change_threshold = 10; // decimal
+  string base_position = 11; // decimal
+  string target_lp_to_b_bid = 12; // decimal
+  string price = 13; // decimal
+  string target_lp_to_b_ask = 14; // decimal
+  string max_distance_from_target_to_b_for_submit = 15; // decimal
+  string timeout_between_orders = 16; // decimal
+  string min_distance_to_opposite_target_to_b = 17; // decimal
+  string position_holding_time = 18; // decimal
+  string benchmark_price = 19; // decimal
+  string pnl = 20; // decimal
+  string cumulative_unhedged_cost = 21; // decimal
+  string term_position = 22; // decimal
+  string max_distance_from_target_to_b_for_amend = 23; // decimal
+  string margin_to_benchmark = 24; // decimal
+  string hedge_slippage = 25; // decimal
+
+  string symbol = 26;
+  string cutoff_time = 27;
+  string state = 28;
+  string target_lp_tenor = 29;
+  string benchmark = 30;
+  string status = 31;
+  string som_name = 32;
+  string start_time = 33;
+  string paused_reasons = 34;
+  string strategy_name = 35;
+  string side = 36;
+  string target_lp = 37;
+  string user = 38;
+}

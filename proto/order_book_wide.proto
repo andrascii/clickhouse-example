@@ -1,0 +1,108 @@
+syntax = "proto3";
+
+package mdh;
+
+message OrderBookWide {
+  string timestamp = 1;
+  string symbol = 2;
+
+  string bid_size1 = 3; // decimal
+  string bid_price1 = 4; // decimal
+  string ask_size1 = 5; // decimal
+  string ask_price1 = 6; // decimal
+
+  string bid_size2 = 7; // decimal
+  string bid_price2 = 8; // decimal
+  string ask_size2 = 9; // decimal
+  string ask_price2 = 10; // decimal
+
+  string bid_size3 = 11; // decimal
+  string bid_price3 = 12; // decimal
+  string ask_size3 = 13; // decimal
+  string ask_price3 = 14; // decimal
+
+  string bid_size4 = 15; // decimal
+  string bid_price4 = 16; // decimal
+  string ask_size4 = 17; // decimal
+  string ask_price4 = 18; // decimal
+
+  string bid_size5 = 19; // decimal
+  string bid_price5 = 20; // decimal
+  string ask_size5 = 21; // decimal
+  string ask_price5 = 22; // decimal
+
+  string bid_size6 = 23; // decimal
+  string bid_price6 = 24; // decimal
+  string ask_size6 = 25; // decimal
+  string ask_price6 = 26; // decimal
+
+  string bid_size7 = 27; // decimal
+  string bid_price7 = 28; // decimal
+  string ask_size7 = 29; // decimal
+  string ask_price7 = 30; // decimal
+
+  string bid_size8 = 31; // decimal
+  string bid_price8 = 32; // decimal
+  string ask_size8 = 33; // decimal
+  string ask_price8 = 34; // decimal
+
+  string bid_size9 = 35; // decimal
+  string bid_price9 = 36; // decimal
+  string ask_size9 = 37; // decimal
+  string ask_price9 = 38; // decimal
+
+  string bid_size10 = 39; // decimal
+  string bid_price10 = 40; // decimal
+  string ask_size10 = 41; // decimal
+  string ask_price10 = 42; // decimal
+
+  string bid_size11 = 43; // decimal
+  string bid_price11 = 44; // decimal
+  string ask_size11 = 45; // decimal
+  string ask_price11 = 46; // decimal
+
+  string bid_size12 = 47; // decimal
+  string bid_price12 = 48; // decimal
+  string ask_size12 = 49; // decimal
+  string ask_price12 = 50; // decimal
+
+  string bid_size13 = 51; // decimal
+  string bid_price13 = 52; // decimal
+  string ask_size13 = 53; // decimal
+  string ask_price13 = 54; // decimal
+
+  string bid_size14 = 55; // decimal
+  string bid_price14 = 56; // decimal
+  string ask_size14 = 57; // decimal
+  string ask_price14 = 58; // decimal
+
+  string bid_size15 = 59; // decimal
+  string bid_price15 = 60; // decimal
+  string ask_size15 = 61; // decimal
+  string ask_price15 = 62; // decimal
+
+  string bid_size16 = 63; // decimal
+  string bid_price16 = 64; // decimal
+  string ask_size16 = 65; // decimal
+  string ask_price16 = 66; // decimal
+
+  string bid_size17 = 67; // decimal
+  string bid_price17 = 68; // decimal
+  string ask_size17 = 69; // decimal
+  string ask_price17 = 70; // decimal
+
+  string bid_size18 = 71; // decimal
+  string bid_price18 = 72; // decimal
+  string ask_size18 = 73; // decimal
+  string ask_price18 = 74; // decimal
+
+  string bid_size19 = 75; // decimal
+  string bid_price19 = 76; // decimal
+  string ask_size19 = 77; // decimal
+  string ask_price19 = 78; // decimal
+
+  string bid_size20 = 79; // decimal
+  string bid_price20 = 80; // decimal
+  string ask_size20 = 81; // decimal
+  string ask_price20 = 82; // decimal
+}

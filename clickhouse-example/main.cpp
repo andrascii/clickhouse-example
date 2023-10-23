@@ -37,6 +37,7 @@
 #include "forward_points_blending_weight.h"
 #include "manual_forward_points.h"
 #include "position_transfer_service_data.h"
+#include "order_book_wide.h"
 
 namespace mdh::cluster::db {
 
