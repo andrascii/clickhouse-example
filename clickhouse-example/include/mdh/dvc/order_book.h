@@ -1,9 +1,8 @@
 #pragma once
 
-#include <order_book.pb.h>
 #include <mdh/cluster/adapter/ProtobufAdapter.h>
 #include <mdh/dvc/types.h>
-
+#include <order_book.pb.h>
 
 /*
 
@@ -26,11 +25,13 @@ enum class Side {
 
 inline std::ostream& operator<<(std::ostream& os, Side side) {
   switch (side) {
-    case Side::kBid: os << "bid";
+    case Side::kBid:
+      os << "bid";
       break;
-    case Side::kAsk: os << "ask";
+    case Side::kAsk:
+      os << "ask";
       break;
-    default: ;
+    default:;
   }
   return os;
 }
@@ -87,9 +88,11 @@ inline auto mdh::cluster::adapter::Adapter<mdh::dvc::OrderBook>::operator()(cons
   res.set_size(toString(src.size));
   res.set_price(toString(src.price));
   switch (src.side) {
-    case dvc::Side::kBid: res.set_side(dvc::protobuf::Side::kBid);
+    case dvc::Side::kBid:
+      res.set_side(dvc::protobuf::Side::kBid);
       break;
-    case dvc::Side::kAsk: res.set_side(dvc::protobuf::Side::kBid);
+    case dvc::Side::kAsk:
+      res.set_side(dvc::protobuf::Side::kBid);
       break;
   }
   return res;
@@ -99,15 +102,17 @@ inline auto mdh::cluster::adapter::Adapter<mdh::dvc::OrderBook>::operator()(cons
   using namespace mdh::dvc;
   OrderBook result{};
   std::stringstream stream{src.timestamp()};
-  stream >> parse("%Y-%m-%d %T", result.timestamp);
+  stream >> date::parse("%Y-%m-%d %T", result.timestamp);
   result.symbol = src.symbol();
   result.level = src.level();
   result.size = Decimal6{src.size()};
   result.price = Decimal6{src.price()};
   switch (src.side()) {
-    case protobuf::kBid: result.side = Side::kBid;
+    case protobuf::kBid:
+      result.side = Side::kBid;
       break;
-    case protobuf::kAsk: result.side = Side::kAsk;
+    case protobuf::kAsk:
+      result.side = Side::kAsk;
       break;
     case protobuf::Side_INT_MIN_SENTINEL_DO_NOT_USE_:
     case protobuf::Side_INT_MAX_SENTINEL_DO_NOT_USE_:

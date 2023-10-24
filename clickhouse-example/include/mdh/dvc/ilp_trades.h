@@ -35,17 +35,7 @@ struct ILpTrades {
   std::string buy_order_type;
 
   friend bool operator==(const ILpTrades& lhs, const ILpTrades& rhs) {
-    return lhs.timestamp == rhs.timestamp
-           && lhs.id == rhs.id
-           && lhs.trade_timestamp == rhs.trade_timestamp
-           && lhs.price == rhs.price
-           && lhs.quantity == rhs.quantity
-           && lhs.symbol == rhs.symbol
-           && lhs.aggressive_side == rhs.aggressive_side
-           && lhs.sell_order_id == rhs.sell_order_id
-           && lhs.sell_order_type == rhs.sell_order_type
-           && lhs.buy_order_id == rhs.buy_order_id
-           && lhs.buy_order_type == rhs.buy_order_type;
+    return lhs.timestamp == rhs.timestamp && lhs.id == rhs.id && lhs.trade_timestamp == rhs.trade_timestamp && lhs.price == rhs.price && lhs.quantity == rhs.quantity && lhs.symbol == rhs.symbol && lhs.aggressive_side == rhs.aggressive_side && lhs.sell_order_id == rhs.sell_order_id && lhs.sell_order_type == rhs.sell_order_type && lhs.buy_order_id == rhs.buy_order_id && lhs.buy_order_type == rhs.buy_order_type;
   }
 
   friend bool operator!=(const ILpTrades& lhs, const ILpTrades& rhs) { return !(lhs == rhs); }
@@ -81,7 +71,7 @@ struct ILpTrades {
            << " buy_order_type: " << obj.buy_order_type;
   }
 };
-}
+}// namespace mdh::dvc
 
 template <>
 struct mdh::cluster::adapter::Adapter<mdh::dvc::ILpTrades> {
@@ -108,7 +98,7 @@ struct mdh::cluster::adapter::Adapter<mdh::dvc::ILpTrades> {
     using namespace mdh::dvc;
     ILpTrades result{};
     std::stringstream stream{src.timestamp()};
-    stream >> parse("%Y-%m-%d %T", result.timestamp);
+    stream >> date::parse("%Y-%m-%d %T", result.timestamp);
     result.id = src.id();
     result.trade_timestamp = Decimal6{src.trade_timestamp()};
     result.price = Decimal6{src.price()};

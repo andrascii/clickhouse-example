@@ -4,7 +4,6 @@
 #include <mdh/cluster/adapter/ProtobufAdapter.h>
 #include <mdh/dvc/types.h>
 
-
 /*
 CREATE TABLE CorePriceFilteredTable (
   timestamp DateTime,
@@ -82,7 +81,7 @@ struct mdh::cluster::adapter::Adapter<mdh::dvc::CorePriceFiltered> {
     using namespace mdh::dvc;
     CorePriceFiltered result{};
     std::stringstream stream{src.timestamp()};
-    stream >> parse("%Y-%m-%d %T", result.timestamp);
+    stream >> date::parse("%Y-%m-%d %T", result.timestamp);
     result.id = src.id();
     result.symbol = src.symbol();
     result.min_spread = Decimal6{src.min_spread()};

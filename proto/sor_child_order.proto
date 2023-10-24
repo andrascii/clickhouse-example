@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package mdh.dvc.protobuf;
+
+// primary key: timestamp, id, timestamp_orig
+
+message SorChildOrder {
+  string timestamp = 1;
+  int64 id = 2;
+  int64 parent_order_id = 3;
+  int64 provider_id = 4;
+
+  string timestamp_orig = 5; // decimal
+  string term_quantity_executed = 6; // decimal
+  string quantity_executed = 7; // decimal
+  string price_executed = 8; // decimal
+  string order_time_stamp = 9; // decimal
+  string quantity = 10; // decimal
+  string limit_price = 11; // decimal
+  string forward_points_adjustment = 12; // decimal
+
+  string extra_params_str = 13;
+  string state = 14;
+  string time_in_force = 15;
+  string side = 16;
+  string status = 17;
+  string broker_md_sent_time = 18;
+  string efx_send_time = 19;
+  string efx_recv_time = 20;
+  string exch_recv_time = 21;
+  string exch_send_time = 22;
+  string symbol = 23;
+  string order_id = 24;
+  string settlement = 25;
+  string cl_ord_id = 26;
+  string provider_name = 27;
+  string settlement_date = 28;
+  string lp_ord_id = 29;
+  string strategy = 30;
+}

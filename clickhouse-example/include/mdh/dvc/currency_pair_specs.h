@@ -133,7 +133,7 @@ struct mdh::cluster::adapter::Adapter<mdh::dvc::CurrencyPairSpecs> {
     using namespace mdh::dvc;
     CurrencyPairSpecs result{};
     std::stringstream stream{src.timestamp()};
-    stream >> parse("%Y-%m-%d %T", result.timestamp);
+    stream >> date::parse("%Y-%m-%d %T", result.timestamp);
 
     result.symbol = src.symbol();
     result.symbol_type = src.symbol_type();

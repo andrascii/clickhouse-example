@@ -1,8 +1,8 @@
 #pragma once
 
-#include <order_book_wide.pb.h>
 #include <mdh/cluster/adapter/ProtobufAdapter.h>
 #include <mdh/dvc/types.h>
+#include <order_book_wide.pb.h>
 
 // primary key [timestamp]
 
@@ -897,7 +897,7 @@ struct mdh::cluster::adapter::Adapter<mdh::dvc::OrderBookWide> {
     using namespace mdh::dvc;
     OrderBookWide result{};
     std::stringstream stream{src.timestamp()};
-    stream >> parse("%Y-%m-%d %T", result.timestamp);
+    stream >> date::parse("%Y-%m-%d %T", result.timestamp);
     result.bid_size1 = Decimal6{src.bid_size1()};
     result.bid_price1 = Decimal6{src.bid_price1()};
     result.ask_size1 = Decimal6{src.ask_size1()};

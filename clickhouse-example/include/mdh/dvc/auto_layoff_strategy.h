@@ -28,7 +28,15 @@ struct AutoLayoffStrategy final {
   std::string paused;
   std::string paused_reasons;
 
-  friend bool operator==(const AutoLayoffStrategy& lhs, const AutoLayoffStrategy& rhs) { return lhs.timestamp == rhs.timestamp && lhs.strategy_name == rhs.strategy_name && lhs.currency == rhs.currency && lhs.currency_pair == rhs.currency_pair && lhs.state == rhs.state && lhs.paused == rhs.paused && lhs.paused_reasons == rhs.paused_reasons; }
+  friend bool operator==(const AutoLayoffStrategy& lhs, const AutoLayoffStrategy& rhs) {
+    return lhs.timestamp == rhs.timestamp &&
+           lhs.strategy_name == rhs.strategy_name &&
+           lhs.currency == rhs.currency &&
+           lhs.currency_pair == rhs.currency_pair &&
+           lhs.state == rhs.state &&
+           lhs.paused == rhs.paused &&
+           lhs.paused_reasons == rhs.paused_reasons;
+  }
 
   friend bool operator!=(const AutoLayoffStrategy& lhs, const AutoLayoffStrategy& rhs) { return !(lhs == rhs); }
 
@@ -77,7 +85,7 @@ struct mdh::cluster::adapter::Adapter<mdh::dvc::AutoLayoffStrategy> {
   dvc::AutoLayoffStrategy operator()(const Type& src) const noexcept {
     dvc::AutoLayoffStrategy result{};
     std::stringstream stream{src.timestamp()};
-    stream >> parse("%Y-%m-%d %T", result.timestamp);
+    stream >> date::parse("%Y-%m-%d %T", result.timestamp);
     result.strategy_name = src.strategy_name();
     result.currency = src.currency();
     result.currency_pair = src.currency_pair();

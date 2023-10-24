@@ -4,7 +4,6 @@
 #include <mdh/cluster/adapter/ProtobufAdapter.h>
 #include <mdh/dvc/types.h>
 
-
 // primary key [timestamp, id]
 
 namespace mdh::dvc {
@@ -67,7 +66,7 @@ struct mdh::cluster::adapter::Adapter<mdh::dvc::ForwardPointsBlendingWeight> {
     using namespace mdh::dvc;
     ForwardPointsBlendingWeight result{};
     std::stringstream stream{src.timestamp()};
-    stream >> parse("%Y-%m-%d %T", result.timestamp);
+    stream >> date::parse("%Y-%m-%d %T", result.timestamp);
     result.id = src.id();
     result.weight = Decimal6{src.weight()};
     result.symbol = src.symbol();

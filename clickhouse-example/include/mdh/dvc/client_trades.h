@@ -216,7 +216,7 @@ struct mdh::cluster::adapter::Adapter<mdh::dvc::ClientTrades> {
     using namespace mdh::dvc;
     ClientTrades result{};
     std::stringstream stream{src.timestamp()};
-    stream >> parse("%Y-%m-%d %T", result.timestamp);
+    stream >> date::parse("%Y-%m-%d %T", result.timestamp);
     result.base_currency = src.base_currency();
     result.client_account = src.client_account();
     result.client_order_id = src.client_order_id();

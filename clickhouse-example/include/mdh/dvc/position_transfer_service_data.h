@@ -1,8 +1,8 @@
 #pragma once
 
-#include <position_transfer_service_data.pb.h>
 #include <mdh/cluster/adapter/ProtobufAdapter.h>
 #include <mdh/dvc/types.h>
+#include <position_transfer_service_data.pb.h>
 
 // primary key - timestamp
 
@@ -82,7 +82,7 @@ struct mdh::cluster::adapter::Adapter<mdh::dvc::PositionTransferServiceData> {
     using namespace mdh::dvc;
     PositionTransferServiceData result{};
     std::stringstream stream{src.timestamp()};
-    stream >> parse("%Y-%m-%d %T", result.timestamp);
+    stream >> date::parse("%Y-%m-%d %T", result.timestamp);
     result.base_amount = Decimal6{src.base_amount()};
     result.term_amount = Decimal6{src.term_amount()};
     result.timestamp_original = Decimal6{src.timestamp_original()};

@@ -101,7 +101,7 @@ struct mdh::cluster::adapter::Adapter<mdh::dvc::CurrencyPnl> {
     using namespace mdh::dvc;
     mdh::dvc::CurrencyPnl result{};
     std::stringstream stream{src.timestamp()};
-    stream >> parse("%Y-%m-%d %T", result.timestamp);
+    stream >> date::parse("%Y-%m-%d %T", result.timestamp);
     result.position = Decimal6{src.position()};
     result.cost = Decimal6{src.cost()};
     result.position_value = Decimal6{src.position_value()};

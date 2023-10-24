@@ -1,8 +1,8 @@
 #pragma once
 
-#include <tca_trades.pb.h>
 #include <mdh/cluster/adapter/ProtobufAdapter.h>
 #include <mdh/dvc/types.h>
+#include <tca_trades.pb.h>
 
 /*
 CREATE TABLE TcaTradesTable (
@@ -115,7 +115,7 @@ struct mdh::cluster::adapter::Adapter<mdh::dvc::TcaTrades> {
     using namespace mdh::dvc;
     TcaTrades result{};
     std::stringstream stream{src.timestamp()};
-    stream >> parse("%Y-%m-%d %T", result.timestamp);
+    stream >> date::parse("%Y-%m-%d %T", result.timestamp);
     result.id = src.id();
     result.timestamp_original = Decimal6{src.timestamp_original()};
     result.client_orders_client_order_id = src.client_orders_client_order_id();

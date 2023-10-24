@@ -34,18 +34,18 @@
 #include <mdh/dvc/tca_orders.h>
 #include <mdh/dvc/tca_trades.h>
 
+#include <boost/asio.hpp>
 #include <random>
 #include <toml.hpp>
-#include <boost/asio.hpp>
 
 namespace mdh::cluster::db {
 
 class InsecureChannel final {
-public:
+ public:
   InsecureChannel() = delete;
 
   explicit InsecureChannel(std::string h)
-    : host_{std::move(h)} {}
+      : host_{std::move(h)} {}
 
   auto operator()() const -> std::shared_ptr<grpc::ChannelInterface> {
     grpc::ChannelArguments args;
@@ -54,7 +54,7 @@ public:
     return CreateCustomChannel(host_, grpc::InsecureChannelCredentials(), args);
   }
 
-private:
+ private:
   std::string host_;
 };
 
@@ -66,7 +66,7 @@ template <
 class Clickhouse final {
   using Adapter = adapter::ProtobufAdapter<T, Buffer, Container>;
 
-public:
+ public:
   explicit Clickhouse(
     std::string name,
     logger::Logger logger,
@@ -80,7 +80,7 @@ public:
     const std::string& table,
     const std::vector<std::string>& fields) const noexcept -> std::string;
 
-private:
+ private:
   std::string name_;
   logger::Logger logger_;
   std::shared_ptr<Adapter> adapter_;
@@ -105,10 +105,10 @@ Clickhouse<T, S, Buffer, Container>::Clickhouse(
   std::shared_ptr<Args> args,
   std::string message_name,
   std::string table_name)
-  : name_{std::move(name)},
-    logger_{std::move(logger)},
-    adapter_{std::make_shared<Adapter>(logger_)},
-    args_{std::move(args)} {
+    : name_{std::move(name)},
+      logger_{std::move(logger)},
+      adapter_{std::make_shared<Adapter>(logger_)},
+      args_{std::move(args)} {
   try {
     auto root = toml::find((*args_)(), name_);
     host_ = toml::find(root, "host").as_string();
@@ -155,8 +155,8 @@ auto Clickhouse<T, S, Buffer, Container>::Write(
     clickhouse::grpc::Result result;
 
     if (const auto status =
-        grpc_client_->ExecuteQuery(&context, query_info_, &result);
-      status.error_code()) {
+          grpc_client_->ExecuteQuery(&context, query_info_, &result);
+        status.error_code()) {
       LOG_FATAL(logger_, "GRPC error {:s}", status.error_message());
       _Exit(EXIT_FAILURE);
     }
@@ -187,8 +187,8 @@ auto Clickhouse<T, S, Buffer, Container>::Select(
   grpc::ClientContext context;
 
   if (const auto status =
-      grpc_client_->ExecuteQuery(&context, request, &response);
-    status.error_code()) {
+        grpc_client_->ExecuteQuery(&context, request, &response);
+      status.error_code()) {
     LOG_FATAL(logger_, "GRPC error {:s}", status.error_message());
     _Exit(EXIT_FAILURE);
   }
@@ -220,7 +220,6 @@ static std::string randomDecimalString() {
 
   return decimalString;
 }
-
 
 // Функция для генерации случайной даты
 static std::string randomDate() {

@@ -4,7 +4,6 @@
 #include <mdh/cluster/adapter/ProtobufAdapter.h>
 #include <mdh/dvc/types.h>
 
-
 /*
 CREATE TABLE FadsMarkupTable (
   timestamp DateTime,
@@ -44,21 +43,7 @@ struct FadsMarkup {
   std::string updated_by;
 
   friend bool operator==(const FadsMarkup& lhs, const FadsMarkup& rhs) {
-    return lhs.timestamp == rhs.timestamp
-           && lhs.id == rhs.id
-           && lhs.volume_band == rhs.volume_band
-           && lhs.bid_spd == rhs.bid_spd
-           && lhs.ask_spd == rhs.ask_spd
-           && lhs.bid_bp == rhs.bid_bp
-           && lhs.ask_bp == rhs.ask_bp
-           && lhs.updated_at == rhs.updated_at
-           && lhs.symbol == rhs.symbol
-           && lhs.tier == rhs.tier
-           && lhs.client == rhs.client
-           && lhs.tenor == rhs.tenor
-           && lhs.strategy == rhs.strategy
-           && lhs.enabled == rhs.enabled
-           && lhs.updated_by == rhs.updated_by;
+    return lhs.timestamp == rhs.timestamp && lhs.id == rhs.id && lhs.volume_band == rhs.volume_band && lhs.bid_spd == rhs.bid_spd && lhs.ask_spd == rhs.ask_spd && lhs.bid_bp == rhs.bid_bp && lhs.ask_bp == rhs.ask_bp && lhs.updated_at == rhs.updated_at && lhs.symbol == rhs.symbol && lhs.tier == rhs.tier && lhs.client == rhs.client && lhs.tenor == rhs.tenor && lhs.strategy == rhs.strategy && lhs.enabled == rhs.enabled && lhs.updated_by == rhs.updated_by;
   }
 
   friend bool operator!=(const FadsMarkup& lhs, const FadsMarkup& rhs) { return !(lhs == rhs); }
@@ -102,7 +87,7 @@ struct FadsMarkup {
            << " updated_by: " << obj.updated_by;
   }
 };
-}
+}// namespace mdh::dvc
 
 template <>
 struct mdh::cluster::adapter::Adapter<mdh::dvc::FadsMarkup> {
@@ -133,7 +118,7 @@ struct mdh::cluster::adapter::Adapter<mdh::dvc::FadsMarkup> {
     using namespace mdh::dvc;
     FadsMarkup result{};
     std::stringstream stream{src.timestamp()};
-    stream >> parse("%Y-%m-%d %T", result.timestamp);
+    stream >> date::parse("%Y-%m-%d %T", result.timestamp);
     result.id = src.id();
     result.volume_band = src.volume_band();
     result.symbol = src.symbol();

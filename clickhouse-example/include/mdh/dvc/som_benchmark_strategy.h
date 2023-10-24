@@ -1,9 +1,8 @@
 #pragma once
 
-#include <som_benchmark_strategy.pb.h>
 #include <mdh/cluster/adapter/ProtobufAdapter.h>
 #include <mdh/dvc/types.h>
-
+#include <som_benchmark_strategy.pb.h>
 
 // primary key [timestamp]
 
@@ -196,7 +195,7 @@ struct mdh::cluster::adapter::Adapter<mdh::dvc::SomBenchmarkStrategy> {
 
     dvc::SomBenchmarkStrategy result{};
     std::stringstream stream{src.timestamp()};
-    stream >> parse("%Y-%m-%d %T", result.timestamp);
+    stream >> date::parse("%Y-%m-%d %T", result.timestamp);
 
     result.state_time_update = src.state_time_update();
     result.cumulative_unhedged_threshold = src.cumulative_unhedged_threshold();
