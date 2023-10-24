@@ -5,3 +5,6 @@ build-relwithdeb
 cmake-build-debug
 cmake-build-release
 .DS_Store
+.vs/*
+out/*
+CMakeSettings.json
