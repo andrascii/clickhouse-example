@@ -1,8 +1,11 @@
 #pragma once
 
 #include <mdh/cluster/adapter/ProtobufAdapter.h>
+#include <mdh/dvc/object_with_ulid.h>
 #include <mdh/dvc/types.h>
-#include <order_book.pb.h>
+
+#include <ostream>
+
 
 /*
 
@@ -18,105 +21,83 @@
  */
 
 namespace mdh::dvc {
-enum class Side {
-  kBid,
-  kAsk
-};
-
-inline std::ostream& operator<<(std::ostream& os, Side side) {
-  switch (side) {
-    case Side::kBid:
-      os << "bid";
-      break;
-    case Side::kAsk:
-      os << "ask";
-      break;
-    default:;
-  }
-  return os;
-}
 
 struct OrderBook {
   TimePoint timestamp;
   std::string symbol;
   uint64_t level;
-  Decimal6 size;
-  Decimal6 price;
-  Side side;
+  Decimal6 bid_price;
+  Decimal6 bid_size;
+  Decimal6 ask_price;
+  Decimal6 ask_size;
 
-  friend bool operator==(const OrderBook& lhs, const OrderBook& rhs) { return lhs.timestamp == rhs.timestamp && lhs.symbol == rhs.symbol && lhs.level == rhs.level && lhs.size == rhs.size && lhs.price == rhs.price && lhs.side == rhs.side; }
-
+  friend bool operator==(const OrderBook& lhs, const OrderBook& rhs) { return std::tie(lhs.timestamp, lhs.symbol, lhs.level, lhs.bid_price, lhs.bid_size, lhs.ask_price, lhs.ask_size) == std::tie(rhs.timestamp, rhs.symbol, rhs.level, rhs.bid_price, rhs.bid_size, rhs.ask_price, rhs.ask_size); }
   friend bool operator!=(const OrderBook& lhs, const OrderBook& rhs) { return !(lhs == rhs); }
-
-  friend std::size_t hash_value(const OrderBook& obj) {
-    std::size_t seed = 0x741310EC;
-    boost::hash_combine(seed, obj.timestamp);
-    boost::hash_combine(seed, obj.symbol);
-    boost::hash_combine(seed, obj.level);
-    boost::hash_combine(seed, obj.size);
-    boost::hash_combine(seed, obj.price);
-    boost::hash_combine(seed, obj.side);
-    return seed;
-  }
 
   friend std::ostream& operator<<(std::ostream& os, const OrderBook& obj) {
     return os
            << "timestamp: " << obj.timestamp
            << " symbol: " << obj.symbol
            << " level: " << obj.level
-           << " size: " << obj.size
-           << " price: " << obj.price
-           << " side: " << obj.side;
+           << " bid_price: " << obj.bid_price
+           << " bid_size: " << obj.bid_size
+           << " ask_price: " << obj.ask_price
+           << " ask_size: " << obj.ask_size;
+  }
+
+  friend std::size_t hash_value(const OrderBook& obj) {
+    std::size_t seed = 0x16850EF7;
+    boost::hash_combine(seed, obj.timestamp);
+    boost::hash_combine(seed, obj.symbol);
+    boost::hash_combine(seed, obj.level);
+    boost::hash_combine(seed, obj.bid_price);
+    boost::hash_combine(seed, obj.bid_size);
+    boost::hash_combine(seed, obj.ask_price);
+    boost::hash_combine(seed, obj.ask_size);
+    return seed;
   }
 };
+
+using OrderBookWithUlid = ObjectWithUlid<OrderBook>;
 }// namespace mdh::dvc
 template <>
-struct mdh::cluster::adapter::Adapter<mdh::dvc::OrderBook> {
+struct mdh::cluster::adapter::Adapter<mdh::dvc::OrderBookWithUlid> {
   inline constexpr static auto name = "OrderBook";
   using Type = dvc::protobuf::OrderBook;
 
-  auto operator()(const dvc::OrderBook& src) const noexcept -> Type;
+  auto operator()(const dvc::OrderBookWithUlid& src) const noexcept -> Type;
 
-  auto operator()(const Type& src) const noexcept -> dvc::OrderBook;
+  auto operator()(const Type& src) const noexcept -> dvc::OrderBookWithUlid;
 };
 
-inline auto mdh::cluster::adapter::Adapter<mdh::dvc::OrderBook>::operator()(const dvc::OrderBook& src) const noexcept -> Type {
+inline auto mdh::cluster::adapter::Adapter<mdh::dvc::OrderBookWithUlid>::operator()(const dvc::OrderBookWithUlid& src) const noexcept -> Type {
   Type res;
+  res.set_id(src.id);
   res.set_timestamp(date::format("%Y-%m-%d %T", src.timestamp));
   res.set_symbol(src.symbol);
   res.set_level(src.level);
-  res.set_size(toString(src.size));
-  res.set_price(toString(src.price));
-  switch (src.side) {
-    case dvc::Side::kBid:
-      res.set_side(dvc::protobuf::Side::kBid);
-      break;
-    case dvc::Side::kAsk:
-      res.set_side(dvc::protobuf::Side::kBid);
-      break;
-  }
+  res.set_symbol(src.symbol);
+  res.set_timestamp(date::format("%Y-%m-%d %T", src.timestamp));
+  res.set_level(src.level);
+  res.set_bid_price(toString(src.bid_price));
+  res.set_bid_size(toString(src.bid_size));
+  res.set_ask_price(toString(src.ask_price));
+  res.set_ask_size(toString(src.ask_size));
   return res;
 }
 
-inline auto mdh::cluster::adapter::Adapter<mdh::dvc::OrderBook>::operator()(const Type& src) const noexcept -> dvc::OrderBook {
+inline auto mdh::cluster::adapter::Adapter<mdh::dvc::OrderBookWithUlid>::operator()(const Type& src) const noexcept -> dvc::OrderBookWithUlid {
   using namespace mdh::dvc;
-  OrderBook result{};
+  using namespace std::chrono;
+  OrderBookWithUlid dst;
+  dst.id = src.id();
+  dst.symbol = src.symbol();
   std::stringstream stream{src.timestamp()};
-  stream >> date::parse("%Y-%m-%d %T", result.timestamp);
-  result.symbol = src.symbol();
-  result.level = src.level();
-  result.size = Decimal6{src.size()};
-  result.price = Decimal6{src.price()};
-  switch (src.side()) {
-    case protobuf::kBid:
-      result.side = Side::kBid;
-      break;
-    case protobuf::kAsk:
-      result.side = Side::kAsk;
-      break;
-    case protobuf::Side_INT_MIN_SENTINEL_DO_NOT_USE_:
-    case protobuf::Side_INT_MAX_SENTINEL_DO_NOT_USE_:
-    default: abort();
-  }
-  return result;
+  stream >> parse("%Y-%m-%d %T", dst.timestamp);
+  dst.level = src.level();
+  dst.bid_price = Decimal6{src.bid_price()};
+  dst.bid_size = Decimal6{src.bid_size()};
+  dst.ask_price = Decimal6{src.ask_price()};
+  dst.ask_size = Decimal6{src.ask_size()};
+  return dst;
 }

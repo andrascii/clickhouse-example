@@ -1,5 +1,7 @@
 #pragma once
-
+#include <decimal-for-cpp/decimal.h>
+#include <chrono>
+#include <boost/functional/hash.hpp>
 #include <date/date.h>
 #include <decimal-for-cpp/decimal.h>
 #include <boost/functional/hash.hpp>
@@ -15,14 +17,10 @@ using Decimal6 = dec::decimal6;
 
 template <>
 struct boost::hash<mdh::dvc::TimePoint> {
-  auto operator()(mdh::dvc::TimePoint tp) const noexcept -> std::size_t {
-    return std::hash<std::uint64_t>{}(tp.time_since_epoch().count());
-  }
+  auto operator()(const mdh::dvc::TimePoint tp) const noexcept -> std::size_t { return std::hash<std::uint64_t>{}(tp.time_since_epoch().count()); }
 };
 
 template <>
 struct boost::hash<mdh::dvc::Decimal6> {
-  auto operator()(mdh::dvc::Decimal6 decimal) const noexcept -> std::size_t {
-    return std::hash<std::uint64_t>{}(decimal.getUnbiased());
-  }
+  auto operator()(const mdh::dvc::Decimal6 decimal) const noexcept -> std::size_t { return std::hash<std::uint64_t>{}(decimal.getUnbiased()); }
 };

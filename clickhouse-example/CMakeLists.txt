@@ -37,15 +37,16 @@ list(APPEND DEPS proto)
 #
 # collecting sources and headers
 #
-file(GLOB_RECURSE SOURCES_LIST "*.cpp")
+file(GLOB_RECURSE CPP_SOURCES_LIST "*.cpp")
+file(GLOB_RECURSE C_SOURCES_LIST "*.c")
 file(GLOB_RECURSE HEADERS_LIST "*.h")
 
-message(STATUS "SOURCES_LIST: ${SOURCES_LIST}")
+message(STATUS "CPP_SOURCES_LIST: ${CPP_SOURCES_LIST}")
 
 #
 # creating target
 #
-add_executable(${THIS_TARGET_NAME} ${HEADERS_LIST} ${SOURCES_LIST})
+add_executable(${THIS_TARGET_NAME} ${HEADERS_LIST} ${CPP_SOURCES_LIST} ${C_SOURCES_LIST})
 
 #
 # adding include directories to created target
@@ -62,13 +63,13 @@ target_include_directories(
 #
 set_property(
   TARGET ${THIS_TARGET_NAME}
-  PROPERTY SOURCES_PROPERTY ${HEADERS_LIST} ${SOURCES_LIST}
+  PROPERTY SOURCES_PROPERTY ${HEADERS_LIST} ${CPP_SOURCES_LIST}
 )
 
 #
 # adding precompiled header
 #
-target_precompile_headers(${THIS_TARGET_NAME} PRIVATE ${PRECOMPILED_HEADER})
+#target_precompile_headers(${THIS_TARGET_NAME} PRIVATE ${PRECOMPILED_HEADER})
 
 #
 # linking this target with other targets
@@ -80,7 +81,7 @@ target_link_libraries(${THIS_TARGET_NAME} PUBLIC ${DEPS})
 #
 #make_executable_sanitized_target(
 #  TARGET_NAME ${THIS_TARGET_NAME}-sanitized
-#  SOURCES ${SOURCES_LIST}
+#  SOURCES ${CPP_SOURCES_LIST}
 #  HEADERS ${HEADERS_LIST}
 #  DEPS ${DEPS}
 #  PRECOMPILED_HEADER ${PRECOMPILED_HEADER}
