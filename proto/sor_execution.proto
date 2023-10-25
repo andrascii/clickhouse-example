@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mdh.dvc.protobuf;
+
+message SorExecution {
+  string timestamp = 1;
+  int64 id = 2;
+  int64 child_order_id = 3;
+
+  string rate = 4;
+  string amount = 5;
+  string timestamp_orig = 6;
+
+  string efx_send_time = 7; // decimal
+  string efx_recv_time = 8; // decimal
+  string exch_recv_time = 9; // decimal
+  string exch_send_time = 10; // decimal
+  string side = 11; // decimal
+  string transaction_time = 12; // decimal
+  string sending_time = 13; // decimal
+  string exec_id = 14; // decimal
+  string counter_party = 15; // decimal
+  string trade_id = 16; // decimal
+}

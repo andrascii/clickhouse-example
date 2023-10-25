@@ -14,31 +14,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b9cbc32-ad58-4c1e-aa39-0e5500cbf057" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/sor_child_order.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/proto/sor_child_order.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clickhouse-example/include/mdh/cluster/args/Args.h" beforeDir="false" afterPath="$PROJECT_DIR$/clickhouse-example/include/mdh/cluster/args/Args.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/sor_execution.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/sor_lazy_execution.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/sor_lazy_order.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/strategy_config.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clickhouse-example/src/sor_child_order.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clickhouse-example/src/sor_execution.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clickhouse-example/src/sor_lazy_execution.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clickhouse-example/src/sor_lazy_order.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clickhouse-example/src/strategy_config.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proto/sor_execution.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proto/sor_lazy_execution.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proto/sor_lazy_order.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proto/strategy_config.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/auto_layoff_strategy.h" beforeDir="false" afterPath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/auto_layoff_strategy.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/client_orders.h" beforeDir="false" afterPath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/client_orders.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/client_trades.h" beforeDir="false" afterPath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/client_trades.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/core_price_filtered.h" beforeDir="false" afterPath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/core_price_filtered.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/currency_pair_specs.h" beforeDir="false" afterPath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/currency_pair_specs.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/currency_pnl.h" beforeDir="false" afterPath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/currency_pnl.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/fads_markup.h" beforeDir="false" afterPath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/fads_markup.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/forward_points_blending_weight.h" beforeDir="false" afterPath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/forward_points_blending_weight.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/ilp_trades.h" beforeDir="false" afterPath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/ilp_trades.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/manual_forward_points.h" beforeDir="false" afterPath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/manual_forward_points.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/order_book.h" beforeDir="false" afterPath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/order_book.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/order_book_wide.h" beforeDir="false" afterPath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/order_book_wide.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/position_transfer_service_data.h" beforeDir="false" afterPath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/position_transfer_service_data.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/som_benchmark_strategy.h" beforeDir="false" afterPath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/som_benchmark_strategy.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/tca_orders.h" beforeDir="false" afterPath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/tca_orders.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/tca_trades.h" beforeDir="false" afterPath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/tca_trades.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/types.h" beforeDir="false" afterPath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/types.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clickhouse-example/src/Args.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/clickhouse-example/src/Args.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clickhouse-example/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/clickhouse-example/src/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/sor_child_order.h" beforeDir="false" afterPath="$PROJECT_DIR$/clickhouse-example/include/mdh/dvc/sor_child_order.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,9 +72,9 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RunManager" selected="CMake Application.clickhouse-example">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="clickhouse-example" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="clickhouse-example" TARGET_NAME="clickhouse-example" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="clickhouse-example" RUN_TARGET_NAME="clickhouse-example">
@@ -120,6 +112,7 @@
       <option name="presentableId" value="Default" />
       <updated>1698158604075</updated>
       <workItem from="1698158605761" duration="2421000" />
+      <workItem from="1698161729966" duration="9142000" />
     </task>
     <servers />
   </component>

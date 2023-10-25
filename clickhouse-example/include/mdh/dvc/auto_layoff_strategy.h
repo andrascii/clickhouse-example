@@ -19,6 +19,7 @@ CREATE TABLE AutoLayoffStrategyTable (
 
  */
 namespace mdh::dvc {
+
 struct AutoLayoffStrategy final {
   TimePoint timestamp;
   std::string strategy_name;
@@ -63,6 +64,7 @@ struct AutoLayoffStrategy final {
            << " paused_reasons: " << obj.paused_reasons;
   }
 };
+
 }// namespace mdh::dvc
 
 template <>

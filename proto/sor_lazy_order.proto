@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package mdh.dvc.protobuf;
+
+message SorLazyOrder {
+  string timestamp = 1;
+  int64 side = 2;
+  int64 state = 3;
+
+  string quantity = 4; // decimal
+  string limit_price = 5; // decimal
+  string spread = 6; // decimal
+  string cum_qty = 7; // decimal
+  string leaves_qty = 8; // decimal
+  string last_price = 9; // decimal
+  string last_qty = 10; // decimal
+  string average_price = 11; // decimal
+  string creation_time = 12; // decimal
+  string modification_time = 13; // decimal
+  string update_time = 14; // decimal
+
+  string order_id = 15;
+  string trader_book = 16;
+  string symbol = 17;
+  string benchmark = 18;
+  string placed_by = 19;
+  string cancelled_by = 20;
+}

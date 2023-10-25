@@ -3,6 +3,7 @@
 #include <mdh/cluster/adapter/ProtobufAdapter.h>
 #include <mdh/dvc/object_with_ulid.h>
 #include <mdh/dvc/types.h>
+#include <order_book.pb.h>
 
 #include <ostream>
 
@@ -93,7 +94,7 @@ inline auto mdh::cluster::adapter::Adapter<mdh::dvc::OrderBookWithUlid>::operato
   dst.id = src.id();
   dst.symbol = src.symbol();
   std::stringstream stream{src.timestamp()};
-  stream >> parse("%Y-%m-%d %T", dst.timestamp);
+  stream >> date::parse("%Y-%m-%d %T", dst.timestamp);
   dst.level = src.level();
   dst.bid_price = Decimal6{src.bid_price()};
   dst.bid_size = Decimal6{src.bid_size()};

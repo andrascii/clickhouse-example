@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package mdh.dvc.protobuf;
+
+message SorLazyExecution {
+  string timestamp = 1;
+  int64 fill_number = 2;
+
+  string quantity = 3; // decimal
+  string price = 4; // decimal
+  string timestamp_orig = 5; // decimal
+
+  string exec_id = 6; // may be set as int64?
+  string order_id = 7; // may be set as int64?
+}
