@@ -1,4 +1,4 @@
-if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang")
+if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang" AND NOT WIN32)
   add_compile_options("$<$<CONFIG:DEBUG>:-O0>")
   add_compile_options("$<$<CONFIG:RELEASE>:-O3>")
   add_compile_options("-Wall")

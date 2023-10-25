@@ -1,2 +1,2 @@
-#include <mdh/cluster/adapter/ProtobufAdapter.h>
-namespace mdh::cluster::adapter {}
+#include <mdh/cluster/ProtobufAdapter.h>
+namespace mdh::cluster {}

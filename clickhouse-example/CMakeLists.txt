@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.16)
 include(make_executable_sanitized_target)
 
 set(THIS_TARGET_NAME clickhouse-example)
-project(${THIS_TARGET_NAME})
+project(${THIS_TARGET_NAME} LANGUAGE C CXX)
 
 #
 # C++ compiler settings
